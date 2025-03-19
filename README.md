@@ -22,6 +22,7 @@ CoTracker can track:
 - **Any pixel** in a video
 - A **quasi-dense** set of pixels together
 - Points can be manually selected or sampled on a grid in any video frame
+- Input videos should be in H.264 / AVC codec. You can use https://video-converter.com/ to convert.
 
 Try these tracking modes for yourself with our [Colab demo](https://colab.research.google.com/github/facebookresearch/co-tracker/blob/master/notebooks/demo.ipynb) or in the [Hugging Face Space 🤗](https://huggingface.co/spaces/facebook/cotracker).
 

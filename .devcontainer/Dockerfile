@@ -46,5 +46,5 @@ RUN cd /checkpoints && \
     wget https://huggingface.co/facebook/cotracker3/resolve/main/scaled_offline.pth
 
 # Install necessary Python packages
-RUN pip install matplotlib flow_vis tqdm tensorboard imageio[ffmpeg] ipykernel
+RUN pip install matplotlib flow_vis tqdm tensorboard imageio[ffmpeg] ipykernel ipympl
 

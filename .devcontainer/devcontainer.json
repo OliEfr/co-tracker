@@ -1,5 +1,5 @@
 {
-    "name": "vggsfm",
+    "name": "co-tracker",
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
