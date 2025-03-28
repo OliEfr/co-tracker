@@ -27,16 +27,25 @@ def read_video_from_path(path):
         frames.append(np.array(im))
     return np.stack(frames)
 
-def read_images_from_path(path):
+def read_images_from_path(image_path, mask_path=None):
     import imageio
     import numpy as np
-    png_files = sorted(os.listdir(path))
-    print("Found # files:: " + str(len(png_files)))
+    png_files = sorted(os.listdir(image_path))
+    print("Found # files: " + str(len(png_files)))
     
     frames = []
     for filename in png_files:
-        file_path = os.path.join(path, filename)
+        file_path = os.path.join(image_path, filename)
         img = imageio.imread(file_path)
+        
+        if mask_path is not None:
+            mask_file_path = os.path.join(mask_path, filename)
+            if os.path.exists(mask_file_path):
+                mask = Image.open(mask_file_path) 
+                mask = np.array(mask)
+                mask = np.where(mask > 127, 1, 0)
+                img = np.where(mask[..., None] > 0, img, 0)  # Apply mask
+        
         frames.append(np.array(img))
     
     return np.stack(frames)
