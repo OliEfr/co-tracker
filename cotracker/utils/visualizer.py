@@ -27,6 +27,20 @@ def read_video_from_path(path):
         frames.append(np.array(im))
     return np.stack(frames)
 
+def read_images_from_path(path):
+    import imageio
+    import numpy as np
+    png_files = sorted(os.listdir(path))
+    print("Found # files:: " + str(len(png_files)))
+    
+    frames = []
+    for filename in png_files:
+        file_path = os.path.join(path, filename)
+        img = imageio.imread(file_path)
+        frames.append(np.array(img))
+    
+    return np.stack(frames)
+
 
 def draw_circle(rgb, coord, radius, color=(255, 0, 0), visible=True, color_alpha=None):
     # Create a draw object
